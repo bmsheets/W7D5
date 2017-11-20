@@ -8,7 +8,6 @@ class Api::SessionsController < ApplicationController
       login(user)
       redirect_to root_url
     else
-      flash.now[:errors] = user.errors
       render json: "Invalid credentials"
     end
   end

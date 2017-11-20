@@ -14,13 +14,11 @@ export const receiveErrors = (errors) => ({
 });
 
 export const login = (user) => dispatch => (
-  APIUtil.logIn(user)
+  APIUtil.login(user)
     .then((currentUser) => dispatch(receiveCurrentUser(currentUser)))
 );
 
-const nullUser = { id: -1, username: '' };
-
 export const logout = () => dispatch => (
-  APIUtil.logOut()
-    .then(() => dispatch(receiveCurrentUser(nullUser)))
+  APIUtil.logout()
+    .then(() => dispatch(receiveCurrentUser(null)))
 );

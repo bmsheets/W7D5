@@ -1,26 +1,26 @@
-const createUser = $.ajax({
+export const createUser = (user) => $.ajax({
   url: '/api/users',
   method: 'POST',
   data: {
-    user: {
-      username: 'bob',
-      password: 'password'
-    }
+    user: user
   }
-}).then(response => console.log("response", response));
+});
 
-const logIn = $.ajax({
+export const login = (user) => $.ajax({
   url: '/api/session',
   method: 'POST',
   data: {
-    user: {
-      username: 'bob',
-      password: 'password'
-    }
+    user: user
   }
-}).then(response => console.log("response", response));
+});
 
-const logOut = $.ajax({
+export const logout = () => $.ajax({
   url: '/api/session',
   method: 'DELETE'
-}).then(response => console.log("response", response));
+});
+
+export const testUser = {
+  username: "bob",
+  password: "password"
+}
+
